@@ -149,6 +149,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2371d285272632b4bac974924314eed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreeGrow
+  growCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  branchesTransform: {fileID: 0}
+  maxSpawnDistance: 0
+  duration: 0
+  appleGrowDuration: 0
+  applePrefab: {fileID: 0}
 --- !u!212 &815432205
 SpriteRenderer:
   serializedVersion: 2
