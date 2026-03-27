@@ -96,4 +96,11 @@ public class TreeGrower : MonoBehaviour
         //IMPORTANT!!!!
         if (treeGrowCoroutine != null)
         {
-            
+            StopCoroutine(treeGrowCoroutine);
+        }
+        if (appleCoroutine != null)
+        {
+            StopCoroutine(appleCoroutine);
+        }
+    }
+}
