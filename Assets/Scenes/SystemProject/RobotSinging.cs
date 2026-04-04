@@ -42,5 +42,9 @@ public class RobotSinging : MonoBehaviour
 
 
         singingCR = null; 
+
+        yield return null;
+
+        singingCR = null; // reset reference
     }
 }
