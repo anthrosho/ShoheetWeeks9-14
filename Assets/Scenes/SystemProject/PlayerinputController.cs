@@ -3,7 +3,6 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 public class PlayerinputController : MonoBehaviour
 {
-    public UnityEvent onSing;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
