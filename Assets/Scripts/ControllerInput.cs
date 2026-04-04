@@ -29,7 +29,7 @@ public class ControllerInput : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
         Debug.Log("Mare!" + context.phase);
-        if (context.performed == true) ;
+        if (context.performed == true) 
         {
             SFX.Play();
         }
