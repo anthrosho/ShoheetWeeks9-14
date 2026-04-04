@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 public class PlayerinputController : MonoBehaviour
 {
+    public UnityEvent onSing;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,14 +13,15 @@ public class PlayerinputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Daisy Daisy, Give Me Your Answer Doooo");
+        Debug.Log("Welcome to Littly Timmy's The Robbot Show Singing!");
     }
 
 public void ImHalfCrazy(InputAction.CallbackContext context)
     {
         if (context.performed) 
         {
-            Debug.Log("I'm Half Crazy");
+            Debug.Log("Thank you for coming to my show! Now let's begin!");
+            onSing.Invoke();
         }
     }
 }
