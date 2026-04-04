@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "RobotSinger",
+    "maps": [
+        {
+            "name": "Sing",
+            "id": "323ee9cb-3b68-41a6-831a-31ba23628855",
+            "actions": [
+                {
+                    "name": "Singing",
+                    "type": "Button",
+                    "id": "bef57b6f-6f0e-4473-8c1a-139cfcaedf90",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b1f075c9-7c5f-4576-9fbd-ae8baed2f0ef",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Singing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
