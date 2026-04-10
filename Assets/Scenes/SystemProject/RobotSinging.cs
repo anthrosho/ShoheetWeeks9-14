@@ -1,13 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class RobotSinging : MonoBehaviour
 {
     private Coroutine singingCR;
 
+    public TextMeshProUGUI lyricsText;
+    public AudioSource audioSource;
+
     public void StartSinging()
     {
-        if (singingCR != null) StopCoroutine(singingCR); // stop previous
+        if (singingCR != null)
+            StopCoroutine(singingCR);
+
         singingCR = StartCoroutine(Sing());
     }
 
@@ -18,33 +24,51 @@ public class RobotSinging : MonoBehaviour
             StopCoroutine(singingCR);
             singingCR = null;
         }
+
+        audioSource.Stop();
+        lyricsText.text = "";
     }
 
     IEnumerator Sing()
     {
-        Debug.Log("Daisy, Daisy,");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("Give me your answer do,");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("I'm half crazy,");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("All for the love of you...");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("It won't be a stylish marriage");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log(" I can't afford a carriage");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log ("But you'll look sweet upon the seat");
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("Of a bicycle built for two");
-        yield return null;
+        audioSource.time = 0f;
+        audioSource.Play();
+
+        yield return new WaitUntil(() => audioSource.time >= 0f);
+        lyricsText.text = " ";
+
+
+        yield return new WaitUntil(() => audioSource.time >= 4.5f);
+        lyricsText.text = "Daisy, Daisy,";
+
+        yield return new WaitUntil(() => audioSource.time >= 8.0f);
+        lyricsText.text = "Give me your answer do,";
+
+        yield return new WaitUntil(() => audioSource.time >= 12);
+        lyricsText.text = "I'm half crazy,";
+
+        yield return new WaitUntil(() => audioSource.time >= 16.0f);
+        lyricsText.text = "All for the love of you...";
+
+
+        yield return new WaitUntil(() => audioSource.time >= 20.0f);
+        lyricsText.text = "It won't be a stylish marriage";
+
+        yield return new WaitUntil(() => audioSource.time >= 24.0f);
+        lyricsText.text = "I can't afford a carriage...";
+
+        yield return new WaitUntil(() => audioSource.time >= 29.0f);
+        lyricsText.text = "But you'll look sweet, upon a seat-";
+
+        yield return new WaitUntil(() => audioSource.time >= 33.0f);
+        lyricsText.text = "Of a bicycle built for two!";
+
+        yield return new WaitUntil(() => audioSource.time >= 38.0f);
 
 
 
-        singingCR = null; 
+        lyricsText.text = "";
 
-        yield return null;
-
-        singingCR = null; // reset reference
+        singingCR = null;
     }
 }
