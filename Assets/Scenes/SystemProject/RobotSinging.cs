@@ -4,21 +4,35 @@ using TMPro;
 
 public class RobotSinging : MonoBehaviour
 {
+    // Declare Variables
     private Coroutine singingCR;
 
     public TextMeshProUGUI lyricsText;
     public AudioSource audioSource;
+    private Vector3 originalScale;
+
+
+
+    public void Start()
+    {
+
+        //Set the scale of the robot to its original scale
+        originalScale = transform.localScale;
+
+    }
 
     public void StartSinging()
     {
-        if (singingCR != null)
+        if (singingCR != null) //If the robot is already singing, stop it. 
             StopCoroutine(singingCR);
 
-        singingCR = StartCoroutine(Sing());
+        singingCR = StartCoroutine(Sing());   //Contains the Function into a variable for easier control 
     }
 
     public void StopSinging()
     {
+
+        //If the robot is not null, then it should stop. 
         if (singingCR != null)
         {
             StopCoroutine(singingCR);
@@ -27,12 +41,14 @@ public class RobotSinging : MonoBehaviour
 
         audioSource.Stop();
         lyricsText.text = "";
+        // Resets the lyrics. 
     }
 
     IEnumerator Sing()
     {
         audioSource.time = 0f;
         audioSource.Play();
+        StartCoroutine(Bounce());
 
         yield return new WaitUntil(() => audioSource.time >= 0f);
         lyricsText.text = " ";
@@ -71,4 +87,18 @@ public class RobotSinging : MonoBehaviour
 
         singingCR = null;
     }
+
+    IEnumerator Bounce()
+    {
+        while (audioSource.isPlaying)
+        {
+            transform.localScale = originalScale * 1.1f;
+            yield return new WaitForSeconds(0.2f);
+
+            transform.localScale = originalScale;
+            yield return new WaitForSeconds(0.2f);
+            // Expands in and out by mulitplying the variable containing the orginal scale.
+        }
+    }
+
 }
