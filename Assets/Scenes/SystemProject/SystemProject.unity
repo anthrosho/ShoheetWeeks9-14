@@ -324,7 +324,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1101648209}
-        m_TargetAssemblyTypeName: Confetti, Assembly-CSharp
+        m_TargetAssemblyTypeName: ConfettiSpawner, Assembly-CSharp
         m_MethodName: LaunchConfetti
         m_Mode: 1
         m_Arguments:
@@ -397,7 +397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -412.64, y: -155.36}
+  m_AnchoredPosition: {x: -332.39, y: -136.8}
   m_SizeDelta: {x: 140.2118, y: 90.5285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475843820
@@ -1126,8 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86080349b27eaa244852655e5ef3d53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConfettiScript
-  confettiPrefab: {fileID: 4260235363533647709, guid: 15a64b7dc00f57046a13c3a02ba2c59f, type: 3}
-  canvasTransform: {fileID: 1846923218}
+  confettiPrefab: {fileID: 9222046637234821663, guid: 69770b1526ca6474e87d79b247512aba, type: 3}
 --- !u!4 &1101648210
 Transform:
   m_ObjectHideFlags: 0
@@ -1137,7 +1136,7 @@ Transform:
   m_GameObject: {fileID: 1101648208}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.726429, y: 64.159775, z: 0}
+  m_LocalPosition: {x: -1.51, y: 2.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1290,7 +1289,7 @@ Transform:
   m_GameObject: {fileID: 1789444773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4154, y: -0.1403, z: 0}
+  m_LocalPosition: {x: -2.836, y: -0.133, z: 0}
   m_LocalScale: {x: 3.6679235, y: 2.4467, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
