@@ -1,45 +1,49 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Confetti : MonoBehaviour
+public class ConfettiSpawner : MonoBehaviour
 {
     public GameObject confettiPrefab;
-    public RectTransform canvasTransform;
 
     public void LaunchConfetti()
     {
+        // Spawn multiple confetti pieces
         for (int i = 0; i < 20; i++)
         {
-            GameObject c = Instantiate(confettiPrefab, canvasTransform);
+            GameObject c = Instantiate(confettiPrefab);
 
-            RectTransform rt = c.GetComponent<RectTransform>();
+            // Spawn near the robot position
+            Vector3 spawnPos = transform.position + new Vector3(Random.Range(-1f, 1f), 2f, 0f);
+            c.transform.position = spawnPos;
 
-            // spawn near top center
-            rt.anchoredPosition = new Vector2(Random.Range(-200, 200), 200);
-
-            StartCoroutine(AnimateConfetti(rt));
+            StartCoroutine(AnimateConfetti(c));
         }
     }
 
-    IEnumerator AnimateConfetti(RectTransform rt)
+    IEnumerator AnimateConfetti(GameObject obj)
     {
         float time = 0f;
         float duration = 2f;
 
-        Vector2 start = rt.anchoredPosition;
-        Vector2 velocity = new Vector2(Random.Range(-50f, 50f), Random.Range(-150f, -250f));
-        float rotationSpeed = Random.Range(-200f, 200f);
+        // Random movement direction
+        Vector3 velocity = new Vector3(
+            Random.Range(-2f, 2f),
+            Random.Range(2f, 5f),
+            0f
+        );
 
         while (time < duration)
         {
-            rt.anchoredPosition += velocity * Time.deltaTime;
-            rt.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+            // Move confetti
+            obj.transform.position += velocity * Time.deltaTime;
+
+            // Apply gravity effect
+            velocity.y -= 9.8f * Time.deltaTime;
 
             time += Time.deltaTime;
             yield return null;
         }
 
-        Destroy(rt.gameObject);
+        Destroy(obj);
     }
 }
