@@ -35,6 +35,8 @@ public class Looker : MonoBehaviour
 
         //Debug.Log(transform.eulerAngles);
 
+        
+
         Vector3 currentMousePosition = Mouse.current.position.ReadValue();
         Vector3 worldMousePosition = gameCamera.ScreenToWorldPoint(currentMousePosition);
         worldMousePosition.z = 0;

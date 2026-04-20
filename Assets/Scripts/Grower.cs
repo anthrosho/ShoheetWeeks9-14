@@ -19,6 +19,7 @@ public class Grower : MonoBehaviour
     public void StartTreeGrowing()
     {
         StartCoroutine(GrowTree());
+        
     }
 
     IEnumerator GrowTree()
